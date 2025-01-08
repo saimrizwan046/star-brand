@@ -1,0 +1,1665 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+  background-image: url(./img/depositphotos_5483370-stock-photo-field-of-freshly-bales-of.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/******************** Home page start **************************/
+
+/******** Navbar styling *********/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, orange, yellow);
+  padding: 5px 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  width: 130px;
+  height: auto;
+  margin-right: 10px;
+}
+.logo-name {
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 666px) {
+  .logo-name {
+    display: none;
+  }
+  .logo-img{
+    width: 120px;
+  }
+}
+
+/******************* Toggle Button *******************/
+.toggle-container {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 25px;
+}
+.toggle-input {
+  display: none;
+}
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+  top: 2.5px;
+  left: 2.5px;
+  transition: transform 0.3s ease;
+}
+.toggle-input:checked+.toggle-label {
+  background-color: orange;
+}
+.toggle-input:checked+.toggle-label::after {
+  transform: translateX(25px);
+}
+@media screen and (max-width: 430px) {
+  .toggle-container {
+    display: inline-block;
+  }
+  .sub-navbar {
+    display: none;
+  }
+}
+
+/*******sub navbar*******/
+.sub-navbar {
+  background-color: transparent;
+}
+.navbar-2 {
+  padding: 5px 20px;
+  align-items: center;
+  backdrop-filter: blur(100px);
+}
+.navbar-2 a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 15px 15px;
+  display: inline-block;
+}
+.navbar-2 a:hover {
+  color: black;
+  transition: color 0.3s ease, transform 0.3s ease;
+  transform: translateY(-5px);
+}
+.dropdown {
+  position: relative;
+  display: inline;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: orange;
+  min-width: 150px;
+}
+.dropdown-content a {
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  z-index: 1;
+  display: block;
+}
+.dropdown-content a:hover {
+  color: black;
+}
+.dropdown:hover .dropdown-content {
+  display: inline-flex;
+  position: absolute;
+  border-radius: 0PX 15PX 15PX 0px;
+}
+.dropdown:hover>a {
+  color: black;
+}
+.dropdown-content :hover {
+  display: block;
+}
+
+/********* slider *********/
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+.fade-slide {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.fade-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fade-slider .fade-slide:nth-child(1) {
+  opacity: 1;
+}
+@media screen and (max-width:666px) {
+  .slider-container {
+    height: 150px;
+  }
+}
+
+/******** card *******/
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px black;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 10px 0;
+}
+.card p {
+  color: black;
+  font-size: 18px;
+}
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.5s;
+}
+.btn:hover {
+  background-color: rgb(241, 241, 37);
+  color: black;
+}
+/****** HOME DATA  ******/
+.home-data {
+  text-align: center;
+  background: linear-gradient(135deg, orange, rgb(247, 247, 34));
+  border-radius: 8px;
+  margin: 20px;
+  justify-content: center;
+}
+.our-main {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 50px;
+  flex-wrap: wrap;
+}
+
+.our-vision {
+  display: flex;
+  text-align: justify;
+  width: 500px;
+}
+.our-vision img{
+  margin-right: 10px;
+  margin-top: 20px;
+}
+.our-mision {
+  display: flex;
+  text-align: justify;
+  width: 500px;
+}
+.our-mision img{
+  margin-right: 10px;
+}
+.home-data .home-h2-1 {
+  font-size: xx-large;
+}
+.home-data .home-p-1 {
+  padding: 0px 50px;
+  font-size: x-large;
+  text-align: justify;
+  justify-items: center;
+}
+.home-product {
+  text-align: justify;
+  justify-items: center;
+}
+.home-data {
+  font-size: 17px;
+}
+@media only screen and (max-width: 666px) {
+  .home-data .home-p-1 {
+    font-size: large;
+    padding: 0px 10px;
+    text-align: justify;
+  }
+  .home-data .home-p {
+    font-size: 15px;
+    text-align: start;
+    padding: 0px 0px;
+  }
+  .our-main {
+    padding: 10px 10px;
+  }
+  .our-main h2 {
+    padding-top: 30px;
+  }
+  .our-vision-img{
+    padding-top: 50px;
+  }
+  .our-mision-img{
+    padding-top: 50px;
+  }
+}
+
+/******* footer ********/
+.footer {
+  background-color: black;
+  opacity: 0.8;
+  color: gray;
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-links {
+  margin-bottom: 15px;
+}
+.footer-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-link:hover {
+  color: orange;
+  transform: translateY(-5px);
+}
+.footer-text {
+  font-size: 14px;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/******************** Home page End **********************/
+
+/******************About work Start  *********************/
+
+.about-main .main-img {
+  background: url(./img/Untitled\ design.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  color: white;
+  position: relative;
+}
+@media only screen and (max-width: 666px) {
+  .about-main .main-img {
+  height: 25vh;
+  }
+}
+
+/* Cards */
+.certifications {
+  text-align: center;
+  background-color: transparent;
+  box-shadow: 0px 0px 60px black;
+  margin: 50px 20px;
+
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.certifications .all-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.card-about img {
+  width: 100%;
+  max-width: 100px;
+}
+/* Leadership Section */
+.leadership {
+  background: white;
+  color:black;
+  padding: 20px;
+  text-align: center;
+}
+
+.leadership-text {
+  animation: text-big linear forwards;
+  animation-timeline: view();
+  /* animation-range: cover; */
+  animation-range-start: cover;
+  animation-range-end: 100px;
+}
+
+@keyframes text-big {
+  from {
+    scale: .8;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+/* Team Section */
+.team {
+  text-align: center;
+  background-color: orange;
+  margin: 10px 0px;
+  padding: 20px;
+  
+  
+}
+.team img {
+  width:900px;
+  height: 550px;
+  margin-top: 10px;
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+@media only screen and (max-width: 666px) {
+  .team img{
+    width: 300px;
+    height: 200px;
+  }
+}
+@keyframes fade-in {
+  from {
+    scale: .8;
+    opacity: 0;
+  }
+
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+/* History Section */
+.history {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 30px;
+}
+/* Community Section */
+.community {
+  background: orange;
+  color:black;
+  text-align: center;
+  padding: 40px;
+  margin: 50px 0px;
+}
+.community img {
+  width: 90%;
+  /* max-width: 600px; */
+  margin-top: 10px;
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+/******************About work End  *******************/
+
+/******************* gallery start ***********************/
+.animation-section {
+  display: flex;
+  justify-content: space-between;
+}
+.container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.box {
+  overflow: hidden;
+  border-radius: 8px;
+}
+.box img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+}
+.box:hover img {
+  transform: scale(1.1);
+}
+.box h2 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+.box p {
+  font-size: 14px;
+  color: #555;
+}
+@media (max-width: 768px) {
+  .content {
+    padding: 15px;
+  }
+  .box h2 {
+    font-size: 16px;
+  }
+  .box p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .box img {
+    border-radius: 4px;
+  }
+  .box h2 {
+    font-size: 14px;
+  }
+  .box p {
+    font-size: 10px;
+  }
+}
+/********************* gallery End **********************/
+
+/****************** F.A.Q work start ********************/
+.sectionFAQ {
+  background: linear-gradient(0deg, rgb(255, 238, 0), rgb(255, 255, 255));
+  text-align: center;
+  margin: 50px;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+.p1 {
+  text-align: justify;
+}
+.h1FAQ {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: xx-large;
+  color: rgb(224, 183, 18);
+}
+.textarea {
+  height: 100px;
+  width: 500px;
+}
+@media only screen and (max-width: 666px) {
+  .textarea {
+    width: 180px;
+  }
+  .sectionFAQ {
+    padding: 0px 12px;
+    margin: 15px;
+  }
+}
+.submit-btn {
+  background-color: orange;
+  margin-top: 16px;
+  margin-bottom: 50px;
+  padding: 10px 50px 10px 50px;
+  border-radius: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 1px solid gray;
+  transition: all 1.5s ease;
+}
+.submit-btn:hover {
+  background-color: rgb(175, 175, 0);
+  transition: 0.3s ease-in-out;
+}
+/******************* F.A.Q work end *******************/
+
+/*******************Contact work start ****************/
+
+/*********Contact Form  *********/
+.section-contact-us {
+  background: yellow;
+  margin: 50px 200px;
+  padding: 50px 50px 50px 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px black;
+}
+.section-contact-us h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: xx-large;
+  color: black;
+  text-align: center;
+}
+.contact-us{
+  padding-left: 150px;
+}
+.contact-main{
+  display: flex;
+  flex-wrap: wrap;
+}
+.mapswrapper{
+  display: flex;
+ padding-left: 300px;
+ padding-top: 50px;
+ width: 305px; 
+ height: 350px;
+}
+.main-contact-work {
+  justify-items: center;
+  margin-top: 50px;
+}
+@media only screen and (max-width: 666px) {
+  .section-contact-us{
+  margin: 10px 10px;
+  padding: 10px;
+  }
+  .contact-us{
+    padding-left: 10px;
+    padding-top: 20px;
+  }
+  .mapswrapper{
+    padding-left: 15px;
+  }
+}
+.contact-work {
+  background-color: orange;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 10px black;
+  align-items: center;
+  height: 620px;
+  width: 500px;
+  margin-bottom: 100px;
+}
+@media only screen and (max-width: 666px) {
+  .contact-work {
+    height: 600px;
+    width: 350px;
+  }
+}
+.head {
+  margin-bottom: 20px;
+}
+.contact-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.contact-work .contact-heading h1 {
+  font-size: xx-large;
+}
+.contact-work .contact-heading p {
+  font-size: large;
+}
+.names input {
+  width: 100%;
+  height: 40px;
+}
+.gmails input {
+  width: 100%;
+  height: 40px;
+}
+.messages textarea {
+  width: 100%;
+  height: 90px;
+}
+#information {
+  width: 100%;
+  height: 40px;
+}
+.subjects {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 52px;
+}
+.submit button {
+  height: 40px;
+  width: 150px;
+  background-color: yellow;
+  font-size: larger;
+  border-radius: 20px;
+}
+.submit button:hover {
+  background-color: rgb(175, 175, 0);
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+.submit {
+  text-align: center;
+}
+/***************Contact work end*********************/
+
+/************** PRODUCT PAGE WORK START ***************/
+
+.product-card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 20px 0px;
+
+
+  animation: pro-card linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+@keyframes pro-card {
+  from {
+    /* scale: .8; */
+    opacity: 0;
+  }
+
+  to {
+    /* scale: 1; */
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 666px) {
+  .product-card{
+    animation-name: none;
+  }
+  
+}
+
+/****************** PRODUCT PAGE WORK END ********************/
+
+/*********** PRODUCT DROPDOWN PAGE WORK START ***************/
+
+/* cereal page start*/
+.section-cereal {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+.section-cereal p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-cereal img {
+  float: right;
+  height: 240px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.cereal-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.cereal-img-main {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.cereal-img img {
+  height: 250px;
+  width: 300px;
+}
+.cereal-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+@media only screen and (max-width: 666px) {
+  .section-cereal img {
+    height: 100px;
+  }
+  .cereal-heading{
+    font-size: x-large;
+  }
+  .section-cereal {
+    margin: 15px;
+    padding: 0px 20px;
+  }
+  .cereal-heading{
+    font-size: x-large;
+  }
+  .cereal-img-main {
+    gap: 10px;
+  }
+  .cereal-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .cereal-img p{
+    font-size: x-small;
+  }
+}
+/* cereal page end*/
+
+/* fruit page start*/
+.section-fruit {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+.section-fruit p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-fruit img {
+  float: right;
+  height: 300px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.fruit-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.fruit-p1 {
+  display: inline-flex;
+}
+.fruit-img-main {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.fruit-img img {
+  height: auto;
+  width: 100%;
+}
+.fruit-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+@media only screen and (max-width: 666px) {
+  .section-fruit {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .fruit-heading{
+    font-size: x-large;
+  }
+  .section-fruit img {
+    height: 150px;
+  }
+  .fruit-heading{
+    font-size: x-large;
+  }
+  .fruit-img-main {
+    gap: 10px;
+  }
+  .fruit-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .fruit-img p{
+    font-size: x-small;
+  }
+}
+
+/* fruit page end*/
+
+/* agro page start */
+.section-agro {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.section-agro p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.agro-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-first-agro img {
+  float: right;
+  height: 170px;
+  
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+.section-second-agro img {
+  height: 170px;
+  float: right;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.agro-img-main {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  text-align: center;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.agro-img img {
+  height: auto;
+  width: 100%;
+}
+.agro-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+@media only screen and (max-width: 666px) {
+  .section-agro {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .agro-heading{
+    font-size: x-large;
+  }
+  .section-first-agro img {
+    height: 100px;
+  }
+  .section-second-agro img {
+    height: 100px;
+  }
+  .agro-img-main {
+    gap: 10px;
+  }
+  .agro-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .agro-img p{
+    font-size: x-small;
+  }
+}
+/* Agro page end */
+
+/* Oil page start */
+.section-oils {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.oil-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-oils p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-first-oil-product img {
+  float: right;
+  height: 200px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-second-sunflower-seed img {
+  float: right;
+  height: 180px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-third-sunflower-oil img {
+  height: 250px;
+  float: left;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+@media only screen and (max-width: 666px) {
+  .section-oils {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .oil-heading{
+    font-size: x-large;
+  }
+  .section-first-oil-product img {
+    height: 100px;
+    float: right;
+  }
+  .section-second-sunflower-seed img {
+    height: 90px;
+    float: right;
+  }
+  .section-third-sunflower-oil img {
+    height: 150px;
+    float: left;
+  }
+}
+/* oil page end */
+
+/* rice work start */
+.section-rice {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.rice-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-rice h2{
+margin-top: 110px;
+}
+.section-first-super-kernel-basmati img {
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-first-super-kernel-basmati p {
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+.section-second-basmati-d98 img {
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-second-basmati-d98 p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+.section-third-long-grain img{
+  float: left;
+  height: 200px;
+  
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-third-long-grain p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+
+.section-four-long-grain-irri img{
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-four-long-grain-irri p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+.section-five-parboiled-sella img{
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-five-parboiled-sella p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+.section-six-boiled-1121 img{
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-six-boiled-1121 p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+.section-seven-100-broken-rice img{
+  float: left;
+  height: 200px;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-seven-100-broken-rice p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+@keyframes rice {
+  from {
+    /* scale: .8; */
+    opacity: 0;
+  }
+
+  to {
+    /* scale: 1; */
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 666px) {
+  .section-rice {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .rice-heading{
+    font-size: x-large;
+  }
+  .section-first-super-kernel-basmati  img{
+    float: left;
+    height: 120px;
+  }
+  .section-second-basmati-d98 img {
+    float: left;
+    height: 120px;
+  }
+  .section-third-long-grain img{
+    float: left;
+    height: 130px;
+  }
+  .section-four-long-grain-irri img{
+    float: left;
+    height: 130px;
+  }
+  .section-five-parboiled-sella img{
+    float: left;
+    height: 130px;
+  }
+  .section-six-boiled-1121 img{
+    float: left;
+    height: 130px;
+  }
+  .section-seven-100-broken-rice img{
+    float: left;
+    height: 130px;
+  }
+  .section-seven-100-broken-rice {
+    margin-bottom:50px ;
+  }
+}
+/* rice work end */
+
+/* dry fruit page start*/
+.section-dry-fruit {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+.section-dry-fruit p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+.section-dry-fruit img {
+  float: right;
+  height: 250px;
+}
+.dry-fruit-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.dry-fruit-img-main {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+.dry-fruit-img img {
+  height: auto;
+  width: 100%;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.dry-fruit-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+.dry-fruit-p1 {
+  display: inline-flex;
+}
+@media only screen and (max-width: 666px) {
+  .section-dry-fruit {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .dry-fruit-heading{
+    font-size: x-large;
+  }
+  .section-dry-fruit img {
+    height: 100px;
+  }
+  .dry-fruit-img-main {
+    gap: 10px;
+  }
+  .dry-fruit-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .dry-fruit-img p{
+    font-size: x-small;
+  }
+}
+/* dry fruit page end*/
+
+/* condiments page start*/
+.section-condiments {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+.section-condiments p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-condiments img {
+  float: right;
+  height:170px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.condiments-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.condiments-p1 {
+  display: inline-flex;
+}
+.section-second-condiments img{
+  height: 170px;
+  float:right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.condiments-img-main{
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-bottom: 60px;
+  text-align: center;
+  margin-top: 90px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.condiment-img img {
+  height: auto;
+  width: 100%;
+}
+.condiment-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+@media only screen and (max-width: 666px) {
+  .section-condiments {
+    margin: 30px 20px;
+    padding: 0px 30px 0px 30px;
+  }
+  .condiments-heading{
+    font-size: x-large;
+  }
+  .section-first-condiments img {
+    height: 80px;
+    float: right;
+  }
+  .section-second-condiments img{
+    height: 80px;
+    float: right;
+  }
+  .condiments-img-main {
+    gap: 10px;
+  }
+  .condiment-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .condiment-img p{
+    font-size: x-small;
+  }
+}
+/* condiments page end*/
+
+/* Cooking Oil page start */
+.section-cooking-oils {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.cooking-oil-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-first-cooking-oil img {
+  float: right;
+  height: 200px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-second-canola-oil img {
+  float: left;
+  height: 180px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-third-canola-meal img {
+  height: 250px;
+  float: right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-cooking-oils p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+}
+@media only screen and (max-width: 666px) {
+  .section-cooking-oils {
+    margin: 15px;
+    padding: 0px 10px;
+  }
+  .cooking-oil-heading{
+    font-size: x-large;
+  }
+  .section-first-cooking-oil img {
+    height: 100px;
+    float: right;
+  }
+  .section-second-canola-oil img {
+    height: 100px;
+    float: right;
+  }
+  .section-third-canola-meal img {
+    height: 110px;
+    float: right;
+  }
+}
+/* cooking oil page end */
+
+/* wheat page start */
+.section-wheat {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.section-wheat p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.wheat-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-first-wheat img {
+  float: right;
+  height: 150px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-third-wheat img {
+  height: 250px;
+  float: right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-five-milling-wheat img {
+  height: 170px;
+  float: right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+@media only screen and (max-width: 666px) {
+  .section-wheat {
+    margin: 30px 20px;
+    padding: 0px 30px 0px 30px;
+  }
+  .wheat-heading{
+    font-size: x-large;
+  }
+  .section-first-wheat img{
+    height: 130px;
+    float: right;
+  }
+  .section-third-wheat img{
+    height: 130px;
+    float: right;
+  }
+  .section-five-milling-wheat img{
+    height: 120px;
+    float: right;
+  }
+}
+/* wheat page end */
+
+/* flour page start */
+.section-flour {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.section-flour p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.flour-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-first-flour img {
+  float: right;
+  height: 150px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-second-wheat-flour img {
+  height: 150px;
+  float: right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-third-gluten-free-flour img {
+  height: 150px;
+  float: right;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+@media only screen and (max-width: 666px) {
+  .section-flour {
+    margin: 30px 20px;
+    padding: 0px 30px 0px 30px;
+  }
+  .flour-heading{
+    font-size: x-large;
+  }
+  .section-first-flour img{
+    height: 100px;
+    float: right;
+  }
+  .section-second-wheat-flour img{
+    height: 100px;
+    float: right;
+  }
+  .section-third-gluten-free-flour img{
+    height: 100px;
+    float: right;
+  }
+}
+/* flour page end */
+
+/* pulses work start */
+.section-pulses {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.pulses-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.pulses-data h4{
+  margin-top: 90px;
+}
+.section-pulses .pulses-data img{
+  height: 150px;
+  float: left;
+
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-pulses .pulses-data p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+
+
+}
+@media only screen and (max-width: 666px) {
+  .section-pulses {
+    margin: 30px 20px;
+    padding: 0px 30px 0px 30px;
+  }
+  .pluses-heading{
+    font-size: x-large;
+  }
+  .section-pulses .pulses-data img {
+    height: 120px;
+    float: left;
+  }
+}
+/* pulses work end */
+
+/* spices work start */
+.section-spices {
+  background: rgb(255, 255, 255);
+  margin: 50px 150px;
+  padding: 0px 50px 50px 50px;
+  border-radius: 10px;
+}
+.section-spices p{
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.spices-heading {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: xx-large;
+  color: orange;
+}
+.section-first-spices img {
+  float: right;
+  height: 200px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.section-second-form-spice img {
+  height: 150px;
+  float: left;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.spices-img-main{
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding-bottom: 40px;
+  text-align: center;
+  margin-top: 60px;
+  animation: rice linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+.spices-img img {
+  height: auto;
+  width: 100%;
+}
+.spices-img p{
+  font-size: x-large;
+  font-weight: bolder;
+  line-height: 50px; 
+}
+@media only screen and (max-width: 666px) {
+  .section-spices {
+    margin: 30px 20px;
+    padding: 0px 30px 0px 30px;
+  }
+  .spices-heading{
+    font-size: x-large;
+  }
+  .section-first-spices img {
+    height: 80px;
+    float: left;
+  }
+  .section-second-form-spice img{
+    height: 80px;
+    float: left;
+  }
+  .spices-img-main {
+    gap: 10px;
+  }
+  .spices-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .spices-img p{
+    font-size: x-small;
+  }
+}
+/* spices work end */
